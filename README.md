@@ -9,20 +9,20 @@ This tool was built to automate the process of content verification on websites.
 The application loads the target URL in a headless browser, simulating either a desktop or mobile viewport. It then reads a list of text strings from an uploaded CSV file and reports which strings were found and which were missing from the page's content.
 
 ### ✨ Key Features
-* **URL & CSV Input: Simply provide a webpage URL and a CSV file containing the text you want to find.
-* **Device Simulation: Check the site's content on desktop, mobile, or both viewports.
-* **Authentication Support: Can handle pages protected by basic HTTP authentication (username/password).
-* **Exact Match Option: Perform a case-sensitive search for precise text matching.
-* **Clear Results: View found and missing text in organized, collapsible accordion sections.
-* **Loading Indicator: A spinner provides feedback while the check is in progress.
-* **Sample File: Users can download a sample CSV file to understand the required format.
+* URL & CSV Input: Simply provide a webpage URL and a CSV file containing the text you want to find.
+* Device Simulation: Check the site's content on desktop, mobile, or both viewports.
+* Authentication Support: Can handle pages protected by basic HTTP authentication (username/password).
+* Exact Match Option: Perform a case-sensitive search for precise text matching.
+* Clear Results: View found and missing text in organized, collapsible accordion sections.
+* Loading Indicator: A spinner provides feedback while the check is in progress.
+* Sample File: Users can download a sample CSV file to understand the required format.
 
 ### 🛠️ Built With
-* **Laravel
-* **Symfony Panther (for browser automation)
-* **PHP
-* **JavaScript (vanilla)
-* **HTML5 & CSS3
+* Laravel
+* Symfony Panther (for browser automation)
+* PHP
+* JavaScript (vanilla)
+* HTML5 & CSS3
 
 ## 📦 Getting Started
 
@@ -31,11 +31,11 @@ To get a local copy up and running, follow these simple steps.
 ### Prerequisites
 Ensure you have the following installed on your system:
 
-* **PHP (>= 8.1)
-* **Composer
-* **Node.js & NPM
-* **A webdriver compatible with Symfony Panther, such as chromedriver.
-
+* PHP (>= 8.1)
+* Composer
+* Node.js & NPM
+* A webdriver compatible with Symfony Panther, such as chromedriver.
+<!--
 # Example for macOS using Homebrew
 brew install chromedriver
 
@@ -106,4 +106,4 @@ use App\Http\Controllers\TextCheckerController;
 
 Route::get('/', [TextCheckerController::class, 'showForm'])->name('checker.form');
 Route::post('/check', [TextCheckerController::class, 'check'])->name('checker.check');
-
+-->
