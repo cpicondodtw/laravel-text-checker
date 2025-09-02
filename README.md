@@ -68,42 +68,33 @@ Run the development server
 php artisan serve
 
 You should now be able to access the application at http://12I7.0.0.1:8000.
+-->
 
 ## 📁 File Structure
 Here are the key files that power this application:
 
 1. Controller
-Path: app/Http/Controllers/TextCheckerController.php
-
-Purpose: This file contains the core back-end logic.
-
-The showForm() method displays the initial page.
-
-The check() method handles the form submission. It validates the input, parses the uploaded CSV, initializes the Panther client, navigates to the URL (handling authentication and device viewports), and searches the page content for each text string. Finally, it returns the results to the view.
+* Path: `app/Http/Controllers/TextCheckerController.php`
+* Purpose: This file contains the core back-end logic.
+* ** The `showForm()` method displays the initial page.
+* ** The `check()` method handles the form submission. It validates the input, parses the uploaded CSV, initializes the Panther client, navigates to the URL (handling authentication and device viewports), and searches the page content for each text string. Finally, it returns the results to the view.
 
 2. View
-Path: resources/views/checker.blade.php
-
-Purpose: This is the main and only view for the application.
-
-It's a Laravel Blade template that renders the HTML form for user input.
-
-It contains the HTML structure to display errors, submission data, and the final results.
-
-All the necessary CSS for styling and the JavaScript for the accordion and loading spinner functionality are included directly in this file.
+* Path: `resources/views/checker.blade.php`
+* Purpose: This is the main and only view for the application.
+* ** It's a Laravel Blade template that renders the HTML form for user input.
+* ** It contains the HTML structure to display errors, submission data, and the final results.
+* ** All the necessary CSS for styling and the JavaScript for the accordion and loading spinner functionality are included directly in this file.
 
 3. Routes
-Path: routes/web.php
+* Path: `routes/web.php`
+* Purpose: This file defines the URL endpoints for the application.
+* ** A `GET` route `(/)` is defined to point to the `showForm` method in the `TextCheckerController`, which displays the main page.
+* ** A `POST` route `(/check)` is defined to point to the `check` method in the `TextCheckerController`, which processes the form data when the user clicks "Check Text".
+```
+ // Example routes/web.php structure
+ use `App\Http\Controllers\TextCheckerController`;
 
-Purpose: This file defines the URL endpoints for the application.
-
-A GET route (/) is defined to point to the showForm method in the TextCheckerController, which displays the main page.
-
-A POST route (/check) is defined to point to the check method in the TextCheckerController, which processes the form data when the user clicks "Check Text".
-
-// Example routes/web.php structure
-use App\Http\Controllers\TextCheckerController;
-
-Route::get('/', [TextCheckerController::class, 'showForm'])->name('checker.form');
-Route::post('/check', [TextCheckerController::class, 'check'])->name('checker.check');
--->
+ Route::get('/', [TextCheckerController::class, 'showForm'])->name('checker.form');
+ Route::post('/check', [TextCheckerController::class, 'check'])->name('checker.check');
+```
